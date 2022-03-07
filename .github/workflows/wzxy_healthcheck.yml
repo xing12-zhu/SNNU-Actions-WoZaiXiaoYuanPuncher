@@ -53,6 +53,8 @@ jobs:
         WZXY_TOWNSHIP: ${{secrets.TOWNSHIP}}
         WZXY_STREET: ${{secrets.STREET}}
         WZXY_ANSWERS: ${{secrets.ANSWERS}}
+        WZXY_AREACODE: ${{secrets.AREACODE}}
+
       run: python wzxy-healthcheck.py
 
   ## 多账户配置示例，请复制下面的代码后取消注释再修改，粘贴时注意缩进
