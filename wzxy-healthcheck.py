@@ -106,6 +106,7 @@ class WoZaiXiaoYuanPuncher:
             "province": os.environ['WZXY_PROVINCE'],
             "township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
+            "areacode":os.environ['WZXY_AREACODE'],
         }
         data = urlencode(sign_data)
         self.session = requests.session()
