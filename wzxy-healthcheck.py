@@ -88,16 +88,11 @@ class WoZaiXiaoYuanPuncher:
         self.header['JWSESSION'] = self.getJwsession()
         # 如果存在全局变量WZXY_ANSWERS，处理传入的Answer
         if os.environ['WZXY_ANSWERS']:
-            input=os.environ['WZXY_ANSWERS'].strip('[]').split(',')
-            for i in range(len(input)):
-                # %TMP -> 随机温度
-                if input[i] == "%TEM%":
-                    input[i] = utils.getRandomTemperature()
-            answers=json.dumps(input,ensure_ascii=False,separators=(',',':'))
+            answers=os.environ['WZXY_ANSWERS']
         else:
-            answers='["0","1","1"]'
+            answers='["0"]'
         sign_data = {
-            "answers": '["0"]',
+            "answers": answers,
             "latitude": os.environ['WZXY_LATITUDE'],
             "longitude": os.environ['WZXY_LONGITUDE'],
             "country": os.environ['WZXY_COUNTRY'],
