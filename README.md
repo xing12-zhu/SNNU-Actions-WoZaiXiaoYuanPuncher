@@ -18,14 +18,23 @@
 对于SNNU计科院的同学，可使用以下参数（长安校区）：
 
 answers:["0"]
+
 latitude:34.15095458984375
+
 longitude:108.88822970920138
+
 country:中国
+
 city:西安市
+
 district:长安区
+
 province:陕西省
+
 township:郭杜街道
+
 street:昆明湖路
+
 areacodc:610116
 
 ### Step0 准备工作
