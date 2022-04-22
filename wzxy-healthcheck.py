@@ -86,6 +86,7 @@ class WoZaiXiaoYuanPuncher:
         self.header['Host'] = "student.wozaixiaoyuan.com"
         self.header['Content-Type'] = "application/x-www-form-urlencoded"
         self.header['JWSESSION'] = self.getJwsession()
+        cur_time = int(round(time.time() * 1000))
         # 如果存在全局变量WZXY_ANSWERS，处理传入的Answer
         if os.environ['WZXY_ANSWERS']:
             answers=os.environ['WZXY_ANSWERS']
@@ -102,6 +103,12 @@ class WoZaiXiaoYuanPuncher:
             "township": os.environ['WZXY_TOWNSHIP'],
             "street": os.environ['WZXY_STREET'],
             "areacode":os.environ['WZXY_AREACODE'],
+            "timestampHeader": cur_time,
+            "signatureHeader": hashlib.sha256(
+                f"{os.environ['WZXY_PROVINCE']}_{cur_time}_{os.environ['WZXY_CITY']}".encode(
+                    "utf-8"
+                )
+            ).hexdigest(),
         }
         data = urlencode(sign_data)
         self.session = requests.session()
