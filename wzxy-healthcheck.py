@@ -38,6 +38,9 @@ class WoZaiXiaoYuanPuncher:
     # 登录
     def login(self):
         username, password = str(os.environ['WZXY_USERNAME']), str(os.environ['WZXY_PASSWORD'])
+        print(username)
+        print(password)
+        
         url = f'{self.loginUrl}?username={username}&password={password}'
         self.session = requests.session()
         # 登录
